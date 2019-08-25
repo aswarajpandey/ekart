@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head></head>
+<body>
+	<div th:fragment="footer">
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<span sec:authorize="isAuthenticated()">
+						| Logged User: <span sec:authentication="name"></span>
+						| Roles: <span th:each="authority : ${#authentication.getAuthorities()}"
+									th:if="${authority.getAuthority().startsWith('ROLE_')}"
+									th:text="${authority.getAuthority().replaceFirst('ROLE_','') + ' '}"> </span>
+						| <a th:href="@{/logout}">Sign out</a>
+					</span>
+					<div>
+						<p class="text-center">&copy; 2019 Aswaraj</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
