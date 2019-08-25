@@ -8,7 +8,7 @@ public class EkartApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EkartApplication.class, args);
-		System.out.println("Ekart App Started..");
+		System.out.println("Ekart App Started.");
 	}
 
 }
