@@ -15,7 +15,6 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String login(Principal principal) {
-		System.out.println("/login");
 		if(Objects.nonNull(principal)) {
 			return "redirect:/home";
 		}
