@@ -13,7 +13,7 @@
 						| Roles: <span th:each="authority : ${#authentication.getAuthorities()}"
 									th:if="${authority.getAuthority().startsWith('ROLE_')}"
 									th:text="${authority.getAuthority().replaceFirst('ROLE_','') + ' '}"> </span>
-						| <a th:href="@{/logout}">Sign out</a>
+						| <a th:href="@{/logout}">Sign Out</a>
 					</span>
 					<div>
 						<p class="text-center">&copy; 2019 Aswaraj</p>

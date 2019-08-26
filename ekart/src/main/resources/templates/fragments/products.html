@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+</head>
+<body>
+	<div th:fragment="products">
+		<div class="panel-default well" th:each="product : ${products}">
+			<div class="panel-heading">
+				<h1 th:text="${product.name}"></h1>
+			</div>
+			<h3 class="panel-body" th:text="${product.description}">Description</h3>
+			<div class="row panel-footer">
+				<div th:inline="text" class="col-md-2">Price: &#8377;[[${product.price}]]</div>
+				<div th:inline="text" class="col-md-9">Stock Available: [[${product.quantity}]]</div>
+				<a class="col-md-1" th:href="@{'/ekart/addProduct/{id}'(id=${product.id})}"
+					sec-authorize="isAuthenticated()"
+					th:if="${product.quantity} > 0">
+					<button type="button" class="btn btn-primary" th:text="Buy">Buy</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -7,9 +7,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+
 /**
- * @author aswaraj
- * Disables Default Security Configuration.
+ * @author Aswaraj
  *
  */
 @Configuration
@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/home").permitAll()
+		.antMatchers("/home", "/h2-console").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
@@ -28,7 +28,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.permitAll()
 		.and()
 		.logout()
-		.permitAll();
+		.permitAll()
+		
+		 // Fix for H2 console
+        .and().headers().frameOptions().disable();
 	}
 	
 	@Override

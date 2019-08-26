@@ -6,6 +6,10 @@ import java.util.Objects;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * @author Aswaraj
+ *
+ */
 @Controller
 public class LoginController {
 

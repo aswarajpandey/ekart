@@ -3,6 +3,11 @@ package com.aswaraj;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+/**
+ * @author Aswaraj
+ *
+ */
 @SpringBootApplication
 public class EkartApplication {
 
