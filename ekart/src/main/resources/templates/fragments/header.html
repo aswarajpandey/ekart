@@ -23,28 +23,44 @@
 <body>
 	<!-- this is header -->
 	<div th:fragment="navbar">
-		<nav class="navbar navbar-inverse">
-			<div class="container">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container"> 
 				<div class="navbar-header">
 					<a class="navbar-brand" th:href="@{/home}">Shop</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse navbar-right">
 					<!-- show shoppingCart only if user is not yet authenticated -->
 					<ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
-						<li class="active"><a th:href="@{/shoppingCart}">Shopping
-								Cart</a></li>
+						<li class="active">
+							<a th:href="@{/cart}" class="btn btn-primary btn-lg">
+								<span class="glyphicon glyphicon-shopping-cart"></span>
+							</a>
+						</li>
+						
 					</ul>
 					<!-- show registration only if user is not yet authenticated -->
 					<ul class="nav navbar-nav" sec:authorize="!isAuthenticated()">
-						<li class="active"><a th:href="@{/registration}">Registration</a></li>
+						<li class="active">
+							<a th:href="@{/registration}">
+								Registration
+							</a>
+						</li>
 					</ul>
 					<!-- show login only if user is not yet authenticated -->
 					<ul class="nav navbar-nav" sec:authorize="!isAuthenticated()">
-						<li class="active"><a th:href="@{/login}">Login</a></li>
+						<li class="active">
+							<a th:href="@{/login}" class="btn btn-primary btn-lg">
+								<span class="glyphicon glyphicon-log-in"></span>
+							</a>
+						</li>
 					</ul>
 					<!-- show sign out only if user is authenticated -->
 					<ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
-						<li class="active"><a th:href="@{/logout}">Sign Out</a></li>
+						<li class="active">
+							<a th:href="@{/logout}" class="btn btn-primary btn-lg">
+								<span class="glyphicon glyphicon-log-out"></span>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

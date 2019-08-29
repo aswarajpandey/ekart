@@ -13,10 +13,15 @@
 			<div class="row panel-footer">
 				<div th:inline="text" class="col-md-2">Price: &#8377;[[${product.price}]]</div>
 				<div th:inline="text" class="col-md-9">Stock Available: [[${product.quantity}]]</div>
-				<a class="col-md-1" th:href="@{'/ekart/addProduct/{id}'(id=${product.id})}"
+				<a class="col-md-1" th:href="@{'/cart/addProduct/{id}'(id=${product.id})}"
 					sec-authorize="isAuthenticated()"
 					th:if="${product.quantity} > 0">
 					<button type="button" class="btn btn-primary" th:text="Buy">Buy</button>
+				</a>
+				<a class="col-md-1" th:href="@{#}"
+					sec-authorize="isAuthenticated()"
+					th:if="${product.quantity} <= 0">
+					<button type="button" class="btn btn-primary" th:text="Pre-order">Pre-order</button>
 				</a>
 			</div>
 		</div>
