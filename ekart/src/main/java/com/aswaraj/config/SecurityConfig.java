@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/home", "/h2-console").permitAll()
+		.antMatchers("/home", "/registration", "/error","/h2-console", "/ifx/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/css/**", "/webjars/**");
+		web.ignoring().antMatchers("/css/**", "/webjars/**", "/ifx/**");
 	}
 	
 	@Autowired
