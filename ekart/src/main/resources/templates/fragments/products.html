@@ -8,6 +8,7 @@
 		<div class="panel-default well" th:each="product : ${products}">
 			<div class="panel-heading">
 				<h1 th:text="${product.name}"></h1>
+				<img alt="" th:src="@{'/api/image/{imageType}/{imageId}'(imageType=product,imageId=${product.id})}" width="100" height="100">
 			</div>
 			<h3 class="panel-body" th:text="${product.description}">Description</h3>
 			<div class="row panel-footer">
